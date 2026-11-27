@@ -1,0 +1,55 @@
+@import "tailwindcss";
+:root{--bg:#e6e9f3;--sl:#fff;--sd:#c3c8da;--tx:#262a45;--mu:#7a7f9c;--pr:#7c5cff;--pr2:#a58bff;--ok:#2fb27a;--no:#e2566b;color-scheme:light;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#22253a;--sl:#2c3050;--sd:#181a2b;--tx:#eceefb;--mu:#9a9fc2;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#22253a;--sl:#2c3050;--sd:#181a2b;--tx:#eceefb;--mu:#9a9fc2;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.45 "Plus Jakarta Sans",system-ui,sans-serif}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--pr);outline-offset:3px}
+.raise{background:var(--bg);box-shadow:8px 8px 18px var(--sd),-8px -8px 18px var(--sl);border-radius:22px}
+.press{box-shadow:inset 5px 5px 10px var(--sd),inset -5px -5px 10px var(--sl)}
+.app{display:grid;grid-template-columns:1fr;min-height:100vh}
+.side{display:none}
+main{padding:20px 18px 120px;max-width:960px;width:100%;margin:0 auto}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.5px;color:var(--pr)}
+.sm{font-size:13px;color:var(--mu)}
+.hero{padding:22px;margin-bottom:22px}
+.big{font-size:40px;font-weight:800;letter-spacing:-1.5px;margin:2px 0 14px}
+.track{height:10px;border-radius:10px;overflow:hidden}
+.fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--pr2),var(--pr));transition:width .5s}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.hero .row{margin-top:10px}
+.pay{width:46px;padding:2px 6px;border-radius:10px;border:0;background:var(--bg);text-align:center}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.stat{padding:16px}.stat b{display:block;font-size:18px;margin-top:2px}
+.in{color:var(--ok)}.out{color:var(--no)}
+h2{font-size:17px;font-weight:800;margin:6px 0 14px}
+.list{display:grid;gap:14px;margin-bottom:24px}
+.item{padding:16px}.item .track{margin-top:10px}
+.btn{padding:12px 20px;border-radius:16px;font-weight:600;background:var(--bg);box-shadow:5px 5px 12px var(--sd),-5px -5px 12px var(--sl)}
+.btn:active{box-shadow:inset 4px 4px 8px var(--sd),inset -4px -4px 8px var(--sl)}
+.btn.pri{background:linear-gradient(135deg,var(--pr2),var(--pr));color:#fff}
+.tx{display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.tx small{display:block;color:var(--mu)}
+.nav{position:fixed;left:12px;right:12px;bottom:0;padding:10px 6px calc(10px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-around;align-items:center;border-radius:24px 24px 0 0}
+.nav a,.nav button,.side a,.side button.n{display:flex;flex-direction:column;align-items:center;font-size:11px;color:var(--mu);padding:6px 14px;border-radius:14px;text-decoration:none}
+.nav a.active,.side a.active{color:var(--pr);font-weight:600}
+.nav .add{width:56px;height:56px;border-radius:50%;margin-top:-30px;background:linear-gradient(135deg,var(--pr2),var(--pr));color:#fff;font-size:28px;box-shadow:0 8px 20px rgba(124,92,255,.45);justify-content:center;padding:0}
+.modal{position:fixed;inset:0;background:rgba(10,12,30,.5);display:flex;align-items:flex-end;justify-content:center;z-index:9}
+.sheet{max-height:90vh;overflow:auto; width:100%;max-width:440px;padding:22px;border-radius:26px 26px 0 0;display:grid;gap:12px;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
+.sheet input,.sheet select{width:100%;padding:13px 14px;border:0;border-radius:14px;background:var(--bg);box-shadow:inset 4px 4px 8px var(--sd),inset -4px -4px 8px var(--sl)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seg button.on{color:var(--pr);box-shadow:inset 4px 4px 8px var(--sd),inset -4px -4px 8px var(--sl)}
+.empty{padding:22px;text-align:center;color:var(--mu)}
+@media (min-width:900px){
+ .app{grid-template-columns:230px 1fr}
+ .side{display:flex;flex-direction:column;gap:8px;padding:28px 18px;position:sticky;top:0;height:100vh}
+ .side .logo{margin-bottom:22px;padding-left:10px}
+ .side a,.side button.n{flex-direction:row;font-size:15px;padding:12px 14px;width:100%;align-items:center}
+ .side a.active{box-shadow:inset 5px 5px 10px var(--sd),inset -5px -5px 10px var(--sl)}
+ .nav{display:none}
+ main{padding:30px 36px 60px}
+ .cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+ .modal{align-items:center}.sheet{border-radius:26px}
+}
